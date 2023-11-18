@@ -1,0 +1,143 @@
+body {
+  display: grid;
+  place-content: center;
+
+  min-height: 100vh;
+  width: 100%;
+
+  background-color: #e3f2fd;
+}
+
+.container {
+  width: 780px;
+  padding: 35px 40px;
+  border-radius: 20px;
+
+  background-color: #000;
+  color: #fff;
+
+  box-shadow: 5px 0 20px rgba(0, 0, 0, 0.7);
+}
+
+.container header {
+  color: #b2b2b2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h2 {
+  font-size: 1.6rem;
+  color: #fff;
+}
+
+header .column {
+  display: flex;
+  align-items: center;
+}
+
+.column span {
+  font-size: 1.19rem;
+  font-weight: 500;
+  margin-right: 15px;
+}
+
+.volume-slider input {
+  accent-color: #fff;
+}
+
+.keys-check input {
+  appearance: none;
+  position: relative;
+
+  width: 60px;
+  height: 30px;
+  border-radius: 30px;
+  background-color: #4b4b4b;
+  cursor: pointer;
+}
+
+.keys-check input::after {
+  content: "";
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  border-radius: inherit;
+  background-color: #8c8c8c;
+
+  transition: 0.3s all ease-in-out;
+
+  top: 50%;
+  left: 20%;
+  transform: translate(-50%, -50%);
+}
+
+.keys-check input:checked::after {
+  left: 80%;
+  background-color: #fff;
+}
+
+.piano-keys {
+  display: flex;
+  margin-top: 40px;
+}
+
+.piano-keys .key {
+  position: relative;
+  color: #a2a2a2;
+  text-transform: uppercase;
+  
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Teclas brancas*/
+.key:nth-child(odd) {
+  width: 70px;
+  height: 230px;
+  
+  border: 1px solid #000;
+  border-radius: 8px;
+
+
+  background: linear-gradient(#FFF 96%, #eee 4%);
+  color: #000;
+}
+/* Teclas pretas*/
+.key:nth-child(even) {
+  margin-inline: -22px; /*margin negativa no eixo X, negativa faz com que esses elementos se sobreponham aos elementos adjacentes.  */
+  width: 44px;
+  height: 140px;
+  z-index: 2;
+  
+  border: 1px solid #000;
+  border-radius: 0 0 5px 5px;
+
+  background: linear-gradient(#333 , #000);
+}
+
+
+.piano-keys span {
+  position: absolute;
+  width: 100%;
+  bottom: 20px;
+
+  text-align: center;
+  font-size: 1.13rem;
+}
+
+.piano-keys .key:nth-child(odd).active  {
+  box-shadow: inset -5px 5px 20px rgba(0, 0, 0, 0.6);
+  transition: .1s all;
+  background: linear-gradient(bottom #FFF 0%, #eee 100%);
+}
+
+.piano-keys .key:nth-child(even).active {
+  box-shadow: inset -5px 5px 20px rgba(0, 0, 0, 0.6);
+  transition: .1s all;
+  background: linear-gradient(bottom #FFF 0%, #eee 100%);
+}
+
+.piano-keys .key.hide span {
+  display: none;
+}
